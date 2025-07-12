@@ -1,3 +1,0 @@
-<div>
-    @yield('childContent')
-</div>
