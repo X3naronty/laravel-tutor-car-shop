@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return view('app', ["name" => "Kiryl", "surname" => "Bazhko", "job" => "<b>BOld texT</b>"]);
+    return view('index');
 })->name('home');
 
 Route::prefix('/hello')->group(function () {
