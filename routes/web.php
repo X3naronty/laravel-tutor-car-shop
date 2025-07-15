@@ -8,11 +8,14 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::prefix('/hello')->group(function () {
-    Route::get('/', [HelloController::class, 'welcome']);
+Route::get('/log-in', function () {
+    return view('log-in');
+})->name('log-in');
 
-    Route::get('/{name}/{surname}', [HelloController::class, 'welcome']);
-});
+
+Route::get('/sign-up', function () {
+    return view('sign-up');
+})->name('sign-up');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
