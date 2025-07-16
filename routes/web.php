@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,11 +18,10 @@ Route::get('/sign-up', function () {
     return view('sign-up');
 })->name('sign-up');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return view('app', ["name" => "Kiryl", "surname" => "Bazhko"]);
-    })->name('dashboard');
-});
+Route::get('/car/search', [CarController::class, 'search'])->name('car.search');
+
+Route::resource('car', CarController::class);
+
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
