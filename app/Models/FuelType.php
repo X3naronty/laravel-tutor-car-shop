@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FuelType extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
     
     // protected $table = 'car_fuel_types'; // custom table name
     // protected $primaryKey = 'fuel_type_id'; // custom primary key

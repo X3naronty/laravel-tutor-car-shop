@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Car extends Model
 {
-    use SoftDeletes, HasFactory;
+    use SoftDeletes, HasFactory;    
 }
