@@ -15,4 +15,8 @@ class FuelType extends Model
     // protected $primaryKey = 'fuel_type_id'; // custom primary key
     // public $incrementing = false; // disable auto incrementing
     // protected $keyType = 'string'; // primary key type    
+
+    protected $fillable = [
+        'name',
+    ];
 }
