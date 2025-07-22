@@ -5,6 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|State newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|State newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|State query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|State whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|State whereName($value)
+ * @mixin \Eloquent
+ */
 class State extends Model
 {
     use HasFactory;
