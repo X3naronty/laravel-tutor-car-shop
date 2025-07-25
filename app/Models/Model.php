@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -27,4 +28,8 @@ class Model extends EloquentModel
         'maker_id',
         'name',
     ];
+
+    public function maker(): BelongsTo {
+        return $this->belongsTo(Maker::class);
+    }
 }
