@@ -3,8 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
+use PHPUnit\Framework\Attributes\Before;
 
 /**
  * @property int $id
@@ -45,7 +50,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Car withoutTrashed()
  * @mixin \Eloquent
  */
-class Car extends Model
+class Car extends EloquentModel
 {
     use SoftDeletes, HasFactory;
 
@@ -68,4 +73,40 @@ class Car extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function features(): HasOne {
+        return $this->hasOne(CarFeature::class);
+    }         
+
+    public function images(): HasMany {
+        return $this->hasMany(CarImage::class);
+    }
+
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
+
+    public function fuelType(): BelongsTo {
+        return $this->belongsTo(FuelType::class);
+    }
+
+    public function carType(): BelongsTo {
+        return $this->belongsTo(CarType::class);
+    }
+
+    public function city(): BelongsTo {
+        return $this->belongsTo(City::class);
+    }
+
+    public function model(): BelongsTo {
+        return $this->belongsTo(Model::class);
+    }
+
+    public function state(): BelongsTo {
+        return $this->city->state();
+    }
+
+    public function maker(): BelongsTo {
+        return $this->model->maker();
+    }
 }
