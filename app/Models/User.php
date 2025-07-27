@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,6 +38,10 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Car> $cars
+ * @property-read int|null $cars_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\FavouriteCar> $favouriteCars
+ * @property-read int|null $favourite_cars_count
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -79,5 +85,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    
+    // Eloquent Relations
+
+    public function cars(): HasMany {
+        return $this->hasMany(Car::class);
+    }
+
+    public function favouriteCars(): BelongsToMany {
+        return $this->belongsToMany(Car::class, 'favourite_cars');
     }
 }
