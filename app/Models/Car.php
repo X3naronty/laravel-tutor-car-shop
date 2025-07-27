@@ -48,6 +48,14 @@ use PHPUnit\Framework\Attributes\Before;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Car whereYear($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Car withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Car withoutTrashed()
+ * @property-read \App\Models\CarType $carType
+ * @property-read \App\Models\City $city
+ * @property-read \App\Models\CarFeature|null $features
+ * @property-read \App\Models\FuelType $fuelType
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\CarImage> $images
+ * @property-read int|null $images_count
+ * @property-read \App\Models\Model $model
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
  */
 class Car extends EloquentModel

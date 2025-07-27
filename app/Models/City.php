@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|City whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|City whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|City whereStateId($value)
+ * @property-read \App\Models\State $state
  * @mixin \Eloquent
  */
 class City extends Model

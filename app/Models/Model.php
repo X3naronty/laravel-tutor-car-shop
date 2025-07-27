@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Model whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Model whereMakerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Model whereName($value)
+ * @property-read \App\Models\Maker $maker
  * @mixin \Eloquent
  */
 class Model extends EloquentModel
