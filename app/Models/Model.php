@@ -26,11 +26,16 @@ class Model extends EloquentModel
     public $timestamps = false;
 
     protected $fillable = [
-        'maker_id',
         'name',
+        'maker_id',
+        'car_type_id',
     ];
 
     public function maker(): BelongsTo {
         return $this->belongsTo(Maker::class);
+    }
+
+    public function carType(): BelongsTo {
+        return $this->belongsTo(CarType::class);
     }
 }

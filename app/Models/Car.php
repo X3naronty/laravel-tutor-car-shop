@@ -98,7 +98,7 @@ class Car extends EloquentModel
     }
 
     public function carType(): BelongsTo {
-        return $this->belongsTo(CarType::class);
+        return $this->model->carType();
     }
 
     public function city(): BelongsTo {
