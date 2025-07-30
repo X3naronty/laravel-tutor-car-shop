@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -22,4 +23,9 @@ class Maker extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function models(): HasMany
+    {
+        return $this->hasMany(Model::class);
+    }
 }
